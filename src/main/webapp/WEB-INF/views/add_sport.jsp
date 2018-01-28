@@ -1,4 +1,4 @@
-<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 
 <div class="container">
 
@@ -24,8 +24,7 @@
 
 				<div class="panel-body">
 					<sf:form class="form-horizontal" modelAttribute="sportEvent"
-						action="${contextRoot}/manage/add/sport" method="POST"
-						enctype="multipart/form-data">
+						action="${contextRoot}/manage/add/sports" method="POST">
 						<div class="form-group">
 							<label class="control-label col-md-4">Name</label>
 							<div class="col-md-8">
@@ -45,25 +44,30 @@
 						<div class="form-group">
 							<label class="control-label col-md-4">Contact Person Name</label>
 							<div class="col-md-8">
-								<sf:input type="text" path="contactPersonName" class="form-control"
-									placeholder="Contact Person Name" />
-								<sf:errors path="contactPersonName" cssClass="help-block" element="em" />
+								<sf:input type="text" path="contactPersonName"
+									class="form-control" placeholder="Contact Person Name" />
+								<sf:errors path="contactPersonName" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-4">Contact Person Phone</label>
+							<label class="control-label col-md-4">Contact Person
+								Phone</label>
 							<div class="col-md-8">
-								<sf:input type="text" path="contactPersonPhone" class="form-control"
-									placeholder="Contact Person Phone" />
-								<sf:errors path="contactPersonPhone" cssClass="help-block" element="em" />
+								<sf:input type="text" path="contactPersonPhone"
+									class="form-control" placeholder="Contact Person Phone" />
+								<sf:errors path="contactPersonPhone" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-4">Contact Person Email</label>
+							<label class="control-label col-md-4">Contact Person
+								Email</label>
 							<div class="col-md-8">
-								<sf:input type="email" path="contactPersonEmail" class="form-control"
-									placeholder="Contact Person Email" />
-								<sf:errors path="contactPersonEmail" cssClass="help-block" element="em" />
+								<sf:input type="email" path="contactPersonEmail"
+									class="form-control" placeholder="Contact Person Email" />
+								<sf:errors path="contactPersonEmail" cssClass="help-block"
+									element="em" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -87,30 +91,33 @@
 						<div class="form-group">
 							<label class="control-label col-md-4">Category</label>
 							<div class="col-md-8">
-								<sf:select path="categoryId" items="${categories}"
-									itemLabel="name" itemValue="id" class="form-control" />
+								<sf:select path="sportCategoryId" items="${categories}"
+									itemLabel="name" itemValue="id"  class="form-control" />
 
 								<div class="text-right">
 									<br />
 									<sf:hidden path="id" />
-									<sf:hidden path="code" />
-									<sf:hidden path="supplierId" />
-									<sf:hidden path="active" />
-									<button type="button" class="btn btn-warning btn-xs"
+									<sf:hidden path="name" />
+									<sf:hidden path="description" />
+									<sf:hidden path="venue" />
+									<sf:hidden path="contactPersonName" />
+									<sf:hidden path="contactPersonPhone" />
+									<sf:hidden path="contactPersonEmail" />
+									<sf:hidden path="time" />
+									<button type="button" class="btn btn-warning btn"
 										data-toggle="modal" data-target="#myCategoryModal">Add
 										New Category</button>
 								</div>
+
 							</div>
 
 						</div>
-
-
-
+				
 						<div class="form-group">
 
 							<div class="col-md-offset-4 col-md-4">
 
-								<input type="submit" name="submit" value="Save"
+								<input type="submit" name="submit" value="Save Sport Event"
 									class="btn btn-primary" />
 
 							</div>
@@ -141,8 +148,8 @@
 				<div class="modal-body">
 
 					<sf:form id="categoryForm" class="form-horizontal"
-						modelAttribute="category" action="${contextRoot}/manage/category"
-						method="POST">
+						modelAttribute="sportCategory"
+						action="${contextRoot}/manage/sport/category" method="POST">
 
 						<div class="form-group">
 							<label class="control-label col-md-4">Name</label>
@@ -159,12 +166,13 @@
 									placeholder="Enter category description here!" />
 							</div>
 						</div>
-						
+
 						<div class="form-group">
-							<label class="control-label col-md-4">Sporting Instruments</label>
+							<label class="control-label col-md-4">Sporting
+								Instruments</label>
 							<div class="col-md-8 validate">
-								<sf:input type="text" path="sportingInstruments" class="form-control"
-									placeholder="Sporting Instruments" />
+								<sf:input type="text" path="sportingInstruments"
+									class="form-control" placeholder="Sporting Instruments" />
 							</div>
 						</div>
 
@@ -181,51 +189,49 @@
 	</div>
 
 	<hr />
-	<h1>Available Products</h1>
+	<h1>Available Sports</h1>
 	<hr />
-
-	<div class="row">
-
-
-		<div class='col-xs-12'>
+	<div class="container-fluid">
+		<div class="row">
 
 
-			<table id="productsTable"
-				class="table table-condensed table-bordered">
-
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</thead>
-
-				<tfoot>
-					<tr>
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>Brand</th>
-						<th>Qty. Avail</th>
-						<th>Unit Price</th>
-						<th>Activate</th>
-						<th>Edit</th>
-					</tr>
-				</tfoot>
+			<div class='col-xs-12'>
 
 
-			</table>
+				<table id="sportsTable" class="table table-condensed table-bordered">
+
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Venue</th>
+							<th>Contact Person</th>
+							<th>Phone</th>
+							<th>Event Time</th>
+							<th></th>
+						</tr>
+					</thead>
+
+					<tfoot>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Venue</th>
+							<th>Contact Person</th>
+							<th>Phone</th>
+							<th>Event Time</th>
+							<th></th>
+						</tr>
+					</tfoot>
+
+
+				</table>
+
+
+			</div>
 
 
 		</div>
-
-
 	</div>
 
 </div>

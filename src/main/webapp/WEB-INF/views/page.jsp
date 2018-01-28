@@ -7,55 +7,78 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 
-<c:set var="contextRoot" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description"
+	content="Online Shopping Website Using Spring MVC and Hibernate">
+<meta name="author" content="Khozema Nullwala">
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 
 <title>Student Management - ${title}</title>
 
-<!-- Bootstrap core CSS -->
+<script>
+	window.menu = '${title}';
+
+	window.contextRoot = '${contextRoot}'
+</script>
+
+<!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+<!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
-<!-- Custom styles for heroic-features template -->
-<link href="${css}/heroic-features.css" rel="stylesheet">
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
-<!-- Custom styles for one-page-wonder template -->
+<!-- One page wonder -->
 <link href="${css}/one-page-wonder.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="${css}/portfolio-item.css" rel="stylesheet">
+<!-- One page wonder -->
+<link href="${css}/teachers.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="${css}/student-table.css" rel="stylesheet">
+<!-- One page wonder -->
+<link href="${css}/singlestudent.css" rel="stylesheet">
 
-<!-- Custom styles for modern business template -->
-<link href="${css}/modern-business.css" rel="stylesheet">
+<!-- One page wonder -->
+<link href="${css}/about.css" rel="stylesheet">
 
-<link href="${css}/round-about.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="${css}/myapp.css" rel="stylesheet">
 
-<!-- Bootstrap cybog theme CSS -->
-<link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <body>
+	
+	
+	<div class="wrapper">
 
-	<%@include file="./shared/nav-bar.jsp"%>
-	<div class="container">
-		<div class="row">
+
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
+
+		<!-- Page Content -->
+
+		<div class="content">
 
 			<!-- Loading the home content -->
 			<c:if test="${userClickHome == true }">
-				<%@include file="home-side-bar.jsp"%>
+
 				<%@include file="home.jsp"%>
 			</c:if>
 
@@ -68,45 +91,91 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="contactus.jsp"%>
 			</c:if>
-			
+
 			<!-- Load only when user clicks contact -->
 			<c:if test="${userClickDepartment == true }">
 				<%@include file="departments.jsp"%>
 			</c:if>
-			
+
 			<!-- Load only when user clicks contact -->
 			<c:if test="${userClickSport == true }">
 				<%@include file="sports.jsp"%>
 			</c:if>
-			
+
 			<!-- Load only when user clicks contact -->
 			<c:if test="${userClickStudent == true }">
 				<%@include file="student.jsp"%>
 			</c:if>
+
+			<c:if
+				test="${userClickLevels == true or userClickLevelForms == true}">
+				<%@include file="adminforms.jsp"%>
+			</c:if>
+			<c:if test="${userClickManageClassStudents == true}">
+				<%@include file="liststudents.jsp"%>
+			</c:if>
+
+			<c:if test="${userClickedManageSports == true}">
+				<%@include file="add_sport.jsp"%>
+			</c:if>
 			
-			<!-- Load only when user clicks contact -->
-			<c:if test="${userClickLogin == true }">
-				<%@include file="login.jsp"%>
+			<c:if test="${userClickAccounts == true }">
+				<%@include file="accounts.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickBooks == true }">
+				<%@include file="books.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickTeachers == true }">
+				<%@include file="teachers.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickedManageLevels == true }">
+				<%@include file="add_level.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickSingleStudent == true }">
+				<%@include file="singlestudentpage.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickProfile == true }">
+				<%@include file="profile.jsp"%>
+			</c:if>
+			<c:if test="${userClickPersonalDetails == true }">
+				<%@include file="teacher-personal-details.jsp"%>
+			</c:if>
+			<c:if test="${userClickAdminDepartment == true }">
+				<%@include file="add_department.jsp"%>
 			</c:if>
 		</div>
+		<!-- Footer comes here -->
+		<%@include file="./shared/footer.jsp"%>
+
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
+
+		<script src="${js}/jquery.validate.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- DataTable Plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/bootbox.min.js"></script>
+		
+		<!-- Self coded javascript -->
+		<script src="${js}/myapp.js"></script>
+		
+		<!-- DataTable Bootstrap Script -->
+		<script src="${js}/teachers.js"></script>
+
 	</div>
-	<%@include file="./shared/footer.jsp"%>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
-	<script src="${js}/bootstrap.bundle.min.js"></script>
-	
-	 <!-- Plugin JavaScript -->
-    <script src="${js}/jquery.easing.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <script src="${js}/jqBootstrapValidation.js"></script>
-    <script src="${js}/contact_me.js"></script>
-    
-    <script src="${js}/student-single-page-datatable.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="${js}/agency.min.js"></script>
 
 </body>
 

@@ -1,4 +1,8 @@
-
+/*!
+ * Start Bootstrap - One Page Wonder (https://startbootstrap.com/template-overviews/one-page-wonder)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/blob/master/LICENSE)
+ */
 
 body {
   padding-top: 54px;
@@ -11,7 +15,7 @@ body {
 }
 
 header.masthead {
-  background: url('../images/education.jpg') no-repeat center center scroll;
+  background: url(../images/biking_flying_cycling.jpg) no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -20,7 +24,7 @@ header.masthead {
 
 header.masthead>.overlay {
   padding: 5rem 0;
-  text-align: right;
+  text-align: center;
   background: rgba(0, 0, 0, 0.6);
 }
 

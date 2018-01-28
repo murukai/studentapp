@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.murukai</groupId>
 	<artifactId>studentapp</artifactId>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>studentapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -14,7 +14,6 @@
 		<javaee.version>7.0</javaee.version>
 		<spring.version>4.3.6.RELEASE</spring.version>
 		<spring.security.version>4.2.2.RELEASE</spring.security.version>
-
 	</properties>
 
 	<dependencies>
@@ -22,10 +21,10 @@
 		<!-- Link backend project -->
 		<dependency>
 			<groupId>net.murukai</groupId>
-			<artifactId>studentappbackend</artifactId>
+			<artifactId>stdrestapi</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		
 		<!-- JAVA EE -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -112,7 +111,5 @@
 
 		<finalName>studentapp</finalName>
 	</build>
-	<modules>
-		<module>studentapprest</module>
-	</modules>
+	
 </project>

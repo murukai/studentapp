@@ -14,9 +14,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import net.murukai.studentappbackend.dao.StudentFormDao;
-import net.murukai.studentappbackend.dao.UserDao;
-import net.murukai.studentappbackend.dto.Student;
+import net.murukai.stdrestapi.dao.StudentFormDao;
+import net.murukai.stdrestapi.dao.UserDao;
+import net.murukai.stdrestapi.dto.Student;
 
 @Path("/students")
 @Produces(MediaType.APPLICATION_JSON)
@@ -40,11 +40,7 @@ public class StudentService {
 		return userDao.listActiveStudents();
 	}
 	
-	@GET
-	@Path("/all-active/{studentFormId}")
-	public List<Student> getStudentByForm(@PathParam("studentFormId")String id){
-		return userDao.listStudentsByForm(studentFormDao.get(Long.valueOf(id)));
-	}
+	
 	
 	@POST
 	@Path("/all")

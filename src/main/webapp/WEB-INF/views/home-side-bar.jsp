@@ -1,4 +1,5 @@
-<div class="col-lg-3">
+
+<div class="col-sm-3">
 
 	<h1 class="my-4">Events</h1>
 	<!-- Project One -->
